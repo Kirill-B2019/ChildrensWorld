@@ -75,12 +75,12 @@
                 ];
             @endphp
 
-            <nav class="hidden items-center gap-2 text-sm font-medium lg:flex">
+            <nav class="hidden flex-nowrap items-center gap-1 text-[13px] font-medium lg:flex xl:gap-2 xl:text-sm">
                 @foreach($navItems as $item)
                     @php $isActive = request()->routeIs($item['route']); @endphp
                     <a
                         href="{{ $withLocale($item['route']) }}"
-                        class="focus-ring rounded-full px-4 py-2 {{ $isActive ? 'bg-brand-primary text-white' : 'text-brand-text hover:text-brand-primary' }}"
+                        class="focus-ring whitespace-nowrap rounded-full px-3 py-2 xl:px-4 {{ $isActive ? 'bg-brand-primary text-white' : 'text-brand-text hover:text-brand-primary' }}"
                     >
                         {{ $item['label'] }}
                     </a>
