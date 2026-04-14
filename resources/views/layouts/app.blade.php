@@ -15,8 +15,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 lg:flex">
-            <aside class="w-full border-b border-gray-200 bg-white lg:min-h-screen lg:w-72 lg:border-b-0 lg:border-r">
+        <div class="min-h-screen bg-gray-100 flex">
+            <aside class="w-72 shrink-0 border-r border-gray-200 bg-white min-h-screen">
                 <div class="px-6 py-5">
                     <a href="{{ route('dashboard') }}" class="text-lg font-bold text-indigo-700">
                         {{ config('app.name', 'Laravel') }} CMS
