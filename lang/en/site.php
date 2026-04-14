@@ -41,6 +41,15 @@ return [
     'programs' => [
         'title' => 'Our Education Programs',
         'subtitle' => 'Education breaks the cycle of poverty and opens opportunities for every child.',
+        'strategy_title' => 'Aligned with the Kyrgyzstan Program',
+        'strategy_text' => 'Our social initiatives are aligned with the vision of socially oriented development in Kyrgyzstan: extra-budgetary funding mechanisms, transparent allocation, and phased implementation of regional projects.',
+        'priorities_title' => 'Program Priorities',
+        'priorities' => [
+            'Support for education, healthcare, ecology, culture, sports, and tourism across regions.',
+            'Transparent implementation, public reporting, and control of targeted spending.',
+            'Digital accountability and regular reporting for social projects.',
+            'Partnership-based delivery with communities, experts, and development institutions.',
+        ],
         'raised' => 'Raised',
         'items' => [
             'kits' => ['title' => 'Educational kits for rural students'],
@@ -67,6 +76,18 @@ return [
     'about' => [
         'title' => 'About the Foundation',
         'text' => 'Future for Children focuses on long-term child development through education, social support, and collaboration with communities.',
+        'paragraphs' => [
+            'The "Our Mission - Future for Children" framework treats children as the main intellectual and spiritual resource of tomorrow, with education and upbringing as the core of sustainable development.',
+            'We promote intercultural and interethnic dialogue, respect for language and traditions, and practical cooperation focused on children\'s future.',
+            'Our approach is based on shared responsibility: support children, strengthen families, and build environments where creation, knowledge, and mutual respect become everyday practice.',
+        ],
+        'principles_title' => 'Core Mission Priorities',
+        'principles' => [
+            'Long-term thinking and decisions for future generations.',
+            'A culture of peace and tolerance through education and cooperation.',
+            'Protection of human values, social fairness, and responsibility.',
+            'Development of children\'s talents with guidance from older generations.',
+        ],
     ],
     'children' => [
         'title' => 'Children Stories',
