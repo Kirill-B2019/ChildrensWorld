@@ -6,7 +6,17 @@
     <section class="section-wrap section-block">
         <h1 class="section-title">{{ __('site.blog.title') }}</h1>
         <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            @foreach (__('site.blog.posts') as $post)
+            @php
+                $fallbackPosts = __('site.blog.posts');
+                $items = isset($posts) && $posts->isNotEmpty()
+                    ? $posts->map(fn ($post) => [
+                        'title' => $post->translationFor(app()->getLocale())?->title ?? '-',
+                        'excerpt' => $post->translationFor(app()->getLocale())?->excerpt ?? '',
+                        'date' => optional($post->published_at)->format('d M Y') ?? '',
+                    ])
+                    : collect($fallbackPosts);
+            @endphp
+            @foreach ($items as $post)
                 <a href="#" class="card-media group focus-ring">
                     <img
                         src="{{ asset('img/blog-' . $loop->iteration . '.webp') }}"

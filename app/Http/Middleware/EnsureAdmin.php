@@ -6,17 +6,21 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class SetLocale
+class EnsureAdmin
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $locale = $request->route('locale');
+        $user = $request->user();
 
-        if (! in_array($locale, ['en', 'ru', 'kg'], true)) {
-            $locale = 'en';
+        if (! $user) {
+            abort(403);
         }
 
-        app()->setLocale($locale);
+        $allowedEmail = (string) env('ADMIN_EMAIL', 'test@test.com');
+
+        if ($user->email !== $allowedEmail) {
+            abort(403);
+        }
 
         return $next($request);
     }

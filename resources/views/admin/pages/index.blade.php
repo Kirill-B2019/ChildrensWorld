@@ -20,6 +20,8 @@
                                 <th class="py-2 text-left">Slug</th>
                                 <th class="py-2 text-left">Status</th>
                                 <th class="py-2 text-left">EN Title</th>
+                                <th class="py-2 text-left">Published at</th>
+                                <th class="py-2 text-left">Updated by</th>
                                 <th class="py-2 text-left">Action</th>
                             </tr>
                         </thead>
@@ -30,13 +32,15 @@
                                     <td class="py-2">{{ $page->slug }}</td>
                                     <td class="py-2">{{ $page->status }}</td>
                                     <td class="py-2">{{ $en?->title ?? '-' }}</td>
+                                    <td class="py-2">{{ optional($page->published_at)->format('Y-m-d H:i') ?? '-' }}</td>
+                                    <td class="py-2">{{ $page->editor?->email ?? '-' }}</td>
                                     <td class="py-2">
                                         <a href="{{ route('admin.content.pages.edit', $page) }}" class="text-indigo-600">Edit</a>
                                     </td>
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4" class="py-4 text-gray-500">No pages yet.</td>
+                                    <td colspan="6" class="py-4 text-gray-500">No pages yet.</td>
                                 </tr>
                             @endforelse
                         </tbody>

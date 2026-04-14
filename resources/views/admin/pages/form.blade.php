@@ -32,8 +32,11 @@
                                 </select>
                             </label>
                         </div>
+                        <p class="text-xs text-gray-500">
+                            Slug preview: /en/{{ old('slug', $page->slug ?: 'your-page-slug') }} (localized routes use /ru and /kg prefixes)
+                        </p>
 
-                        @foreach (['en', 'ru', 'ky'] as $locale)
+                        @foreach (['en', 'ru', 'kg'] as $locale)
                             <fieldset class="rounded border p-4">
                                 <legend class="px-2 font-semibold uppercase">{{ $locale }}</legend>
                                 <div class="grid gap-4">

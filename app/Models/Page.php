@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Page extends Model
@@ -12,6 +13,7 @@ class Page extends Model
         'template',
         'status',
         'published_at',
+        'updated_by',
     ];
 
     protected $casts = [
@@ -21,6 +23,11 @@ class Page extends Model
     public function translations(): HasMany
     {
         return $this->hasMany(PageTranslation::class);
+    }
+
+    public function editor(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 
     public function translationFor(string $locale): ?PageTranslation

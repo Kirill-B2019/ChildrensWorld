@@ -15,6 +15,26 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()?->email === env('ADMIN_EMAIL', 'test@test.com'))
+                        <x-nav-link :href="route('admin.content.pages.index')" :active="request()->routeIs('admin.content.*')">
+                            CMS
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.content.posts.index')" :active="request()->routeIs('admin.content.posts.*')">
+                            Blog
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.content.events.index')" :active="request()->routeIs('admin.content.events.*')">
+                            Events
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.content.reports.index')" :active="request()->routeIs('admin.content.reports.*')">
+                            Reports
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.content.donations.index')" :active="request()->routeIs('admin.content.donations.*')">
+                            Donations
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.content.settings.edit')" :active="request()->routeIs('admin.content.settings.*')">
+                            Settings
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -70,6 +90,16 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            @if (Auth::user()?->email === env('ADMIN_EMAIL', 'test@test.com'))
+                <x-responsive-nav-link :href="route('admin.content.pages.index')" :active="request()->routeIs('admin.content.*')">
+                    CMS
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.content.posts.index')" :active="request()->routeIs('admin.content.posts.*')">Blog</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.content.events.index')" :active="request()->routeIs('admin.content.events.*')">Events</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.content.reports.index')" :active="request()->routeIs('admin.content.reports.*')">Reports</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.content.donations.index')" :active="request()->routeIs('admin.content.donations.*')">Donations</x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.content.settings.edit')" :active="request()->routeIs('admin.content.settings.*')">Settings</x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->

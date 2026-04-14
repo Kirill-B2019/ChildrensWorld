@@ -1,6 +1,6 @@
 # ChildrensWorld
 
-Laravel-based charity platform with multilingual public pages (EN/RU/KY), donation flow via QR, and a basic content management backend.
+Laravel-based charity platform with multilingual public pages (EN/RU/KG), donation flow via QR, and a basic content management backend.
 
 ## Stack
 
@@ -13,7 +13,7 @@ Laravel-based charity platform with multilingual public pages (EN/RU/KY), donati
 ## Current Features
 
 - Public website pages: Home, About, Programs, Children, Events, Blog, Reports, Contact, Donate, FAQ, Privacy, Terms
-- Language switching: `EN`, `RU`, `KY`
+- Language switching: `EN`, `RU`, `KG`
 - Donation flow:
   - donation intent creation
   - QR payload screen
@@ -53,6 +53,6 @@ php artisan test
 - Public layout: `resources/views/layouts/public.blade.php`
 - Public pages: `resources/views/pages`
 - CMS pages: `resources/views/admin/pages`
-- Translations: `lang/en`, `lang/ru`, `lang/ky`
+- Translations: `lang/en`, `lang/ru`, `lang/kg`
 - Donation config: `config/donation.php`
 - Migrations: `database/migrations`

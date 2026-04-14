@@ -13,7 +13,7 @@ class LocaleSwitchTest extends TestCase
     {
         $this->get('/')->assertOk();
         $this->get('/ru')->assertOk();
-        $this->get('/ky')->assertOk();
+        $this->get('/kg')->assertOk();
     }
 
     public function test_language_switcher_shows_all_supported_locales(): void
@@ -23,6 +23,6 @@ class LocaleSwitchTest extends TestCase
         $response->assertOk()
             ->assertSee('EN')
             ->assertSee('RU')
-            ->assertSee('KY');
+            ->assertSee('KG');
     }
 }

@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Page;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PageController extends Controller
 {
     public function index(): View
     {
-        $pages = Page::with('translations')->orderBy('id')->get();
+        $pages = Page::with(['translations', 'editor'])->orderByDesc('updated_at')->get();
 
         return view('admin.pages.index', compact('pages'));
     }
@@ -24,7 +25,7 @@ class PageController extends Controller
             'translations' => [
                 'en' => ['title' => '', 'meta_title' => '', 'meta_description' => '', 'body' => ''],
                 'ru' => ['title' => '', 'meta_title' => '', 'meta_description' => '', 'body' => ''],
-                'ky' => ['title' => '', 'meta_title' => '', 'meta_description' => '', 'body' => ''],
+                'kg' => ['title' => '', 'meta_title' => '', 'meta_description' => '', 'body' => ''],
             ],
             'action' => route('admin.content.pages.store'),
             'method' => 'POST',
@@ -40,6 +41,7 @@ class PageController extends Controller
             'template' => $data['template'],
             'status' => $data['status'],
             'published_at' => $data['status'] === 'published' ? now() : null,
+            'updated_by' => Auth::id(),
         ]);
 
         foreach ($data['translations'] as $locale => $translation) {
@@ -60,7 +62,7 @@ class PageController extends Controller
         $page->load('translations');
 
         $translations = [];
-        foreach (['en', 'ru', 'ky'] as $locale) {
+        foreach (['en', 'ru', 'kg'] as $locale) {
             $t = $page->translations->firstWhere('locale', $locale);
             $translations[$locale] = [
                 'title' => $t?->title ?? '',
@@ -87,6 +89,7 @@ class PageController extends Controller
             'template' => $data['template'],
             'status' => $data['status'],
             'published_at' => $data['status'] === 'published' ? ($page->published_at ?? now()) : null,
+            'updated_by' => Auth::id(),
         ]);
 
         foreach ($data['translations'] as $locale => $translation) {
@@ -112,16 +115,16 @@ class PageController extends Controller
             'status' => ['required', 'in:draft,published'],
             'translations.en.title' => ['required', 'string', 'max:255'],
             'translations.ru.title' => ['required', 'string', 'max:255'],
-            'translations.ky.title' => ['required', 'string', 'max:255'],
+            'translations.kg.title' => ['required', 'string', 'max:255'],
             'translations.en.meta_title' => ['nullable', 'string', 'max:255'],
             'translations.ru.meta_title' => ['nullable', 'string', 'max:255'],
-            'translations.ky.meta_title' => ['nullable', 'string', 'max:255'],
+            'translations.kg.meta_title' => ['nullable', 'string', 'max:255'],
             'translations.en.meta_description' => ['nullable', 'string', 'max:255'],
             'translations.ru.meta_description' => ['nullable', 'string', 'max:255'],
-            'translations.ky.meta_description' => ['nullable', 'string', 'max:255'],
+            'translations.kg.meta_description' => ['nullable', 'string', 'max:255'],
             'translations.en.body' => ['nullable', 'string'],
             'translations.ru.body' => ['nullable', 'string'],
-            'translations.ky.body' => ['nullable', 'string'],
+            'translations.kg.body' => ['nullable', 'string'],
         ]);
     }
 }

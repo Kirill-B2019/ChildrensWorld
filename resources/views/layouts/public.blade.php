@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 @php
-    $supportedLocales = ['en', 'ru', 'ky'];
+    $supportedLocales = ['en', 'ru', 'kg'];
+    $localeLabels = ['en' => 'EN', 'ru' => 'RU', 'kg' => 'KG'];
     $locale = app()->getLocale();
     $withLocale = fn (string $route) => route($route, ['locale' => $locale]);
     $currentRouteName = optional(request()->route())->getName();
@@ -34,20 +35,24 @@
     $alternateUrls = collect($supportedLocales)->mapWithKeys(
         fn (string $lang) => [$lang => $localizedUrl($lang)]
     );
+    $defaultMetaDescription = __('site.meta.default_description');
+    if (\Illuminate\Support\Facades\Schema::hasTable('site_settings')) {
+        $defaultMetaDescription = \App\Models\SiteSetting::getValue('site', 'seo.default_description', null, $defaultMetaDescription) ?? $defaultMetaDescription;
+    }
 @endphp
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', config('app.name'))</title>
-    <meta name="description" content="@yield('description', __('site.meta.default_description'))">
+    <meta name="description" content="@yield('description', $defaultMetaDescription)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="canonical" href="{{ $canonicalUrl }}">
     <link rel="alternate" hreflang="en" href="{{ $alternateUrls['en'] }}">
     <link rel="alternate" hreflang="ru" href="{{ $alternateUrls['ru'] }}">
-    <link rel="alternate" hreflang="ky" href="{{ $alternateUrls['ky'] }}">
+    <link rel="alternate" hreflang="kg" href="{{ $alternateUrls['kg'] }}">
     @yield('hreflang')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -91,7 +96,7 @@
                             href="{{ $alternateUrls[$lang] }}"
                             class="focus-ring px-3 py-2 text-xs font-semibold {{ $lang === $locale ? 'bg-brand-primary text-white' : 'bg-white text-brand-text' }}"
                         >
-                            {{ strtoupper($lang) }}
+                            {{ $localeLabels[$lang] ?? strtoupper($lang) }}
                         </a>
                     @endforeach
                 </div>

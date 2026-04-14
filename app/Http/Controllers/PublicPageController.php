@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
+use App\Models\Post;
 use App\Models\Page;
+use App\Models\Report;
+use App\Models\SiteSetting;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Schema;
 
@@ -54,22 +58,56 @@ class PublicPageController extends Controller
 
     public function events(): View
     {
-        return view('pages.events');
+        $events = collect();
+        if (Schema::hasTable('events') && Schema::hasTable('event_translations')) {
+            $events = Event::with('translations')
+                ->where('status', 'published')
+                ->orderByDesc('event_date')
+                ->get();
+        }
+
+        return view('pages.events', compact('events'));
     }
 
     public function blog(): View
     {
-        return view('pages.blog');
+        $posts = collect();
+        if (Schema::hasTable('posts') && Schema::hasTable('post_translations')) {
+            $posts = Post::with('translations')
+                ->where('status', 'published')
+                ->orderByDesc('published_at')
+                ->get();
+        }
+
+        return view('pages.blog', compact('posts'));
     }
 
     public function reports(): View
     {
-        return view('pages.reports');
+        $reports = collect();
+        if (Schema::hasTable('reports') && Schema::hasTable('report_translations')) {
+            $reports = Report::with('translations')
+                ->where('status', 'published')
+                ->orderByDesc('published_at')
+                ->get();
+        }
+
+        return view('pages.reports', compact('reports'));
     }
 
     public function contact(): View
     {
-        return view('pages.contact');
+        $settings = [];
+        if (Schema::hasTable('site_settings')) {
+            $settings = [
+                'phone' => SiteSetting::getValue('site', 'contact.phone'),
+                'email' => SiteSetting::getValue('site', 'contact.email'),
+                'address' => SiteSetting::getValue('site', 'contact.address'),
+                'requisites' => SiteSetting::getValue('site', 'donation.requisites'),
+            ];
+        }
+
+        return view('pages.contact', compact('settings'));
     }
 
     public function faq(): View
