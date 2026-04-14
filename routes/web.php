@@ -44,7 +44,7 @@ Route::post('/bank/qr/webhook', [DonationController::class, 'webhook'])->name('d
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'dashboardLocale'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard/locale/{locale}', function (string $locale) {
