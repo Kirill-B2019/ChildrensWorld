@@ -71,7 +71,9 @@ class DonationController extends Controller
         ];
 
         if (! in_array($next, $allowedTransitions[$current] ?? [], true)) {
-            return back()->withErrors(['status' => "Transition {$current} -> {$next} is not allowed."]);
+            return back()->withErrors([
+                'status' => __('admin.donations.transition_error', ['from' => $current, 'to' => $next]),
+            ]);
         }
 
         $intent->update([

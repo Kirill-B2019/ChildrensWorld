@@ -39,6 +39,6 @@ class SiteSettingController extends Controller
             );
         }
 
-        return back()->with('status', 'Settings updated.');
+        return back()->with('status', __('admin.settings.saved'));
     }
 }

@@ -24,17 +24,17 @@
                 </div>
 
                 <nav class="space-y-1 px-3 pb-5">
-                    <a href="{{ route('dashboard') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('dashboard') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
-                    <a href="{{ route('profile.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('profile.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Profile</a>
+                    <a href="{{ route('dashboard') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('dashboard') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.dashboard') }}</a>
+                    <a href="{{ route('profile.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('profile.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.profile') }}</a>
 
                     @if (auth()->user()?->email === config('cms.admin_email', 'test@test.com'))
-                        <div class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-gray-500">CMS</div>
-                        <a href="{{ route('admin.content.pages.index') }}" class="mt-1 block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.pages.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Pages</a>
-                        <a href="{{ route('admin.content.posts.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.posts.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Blog</a>
-                        <a href="{{ route('admin.content.events.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.events.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Events</a>
-                        <a href="{{ route('admin.content.reports.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.reports.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Reports</a>
-                        <a href="{{ route('admin.content.donations.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.donations.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Donations</a>
-                        <a href="{{ route('admin.content.settings.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.settings.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Settings</a>
+                        <div class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-gray-500">{{ __('admin.sidebar.cms') }}</div>
+                        <a href="{{ route('admin.content.pages.index') }}" class="mt-1 block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.pages.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.pages') }}</a>
+                        <a href="{{ route('admin.content.posts.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.posts.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.blog') }}</a>
+                        <a href="{{ route('admin.content.events.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.events.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.events') }}</a>
+                        <a href="{{ route('admin.content.reports.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.reports.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.reports') }}</a>
+                        <a href="{{ route('admin.content.donations.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.donations.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.donations') }}</a>
+                        <a href="{{ route('admin.content.settings.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.settings.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">{{ __('admin.sidebar.settings') }}</a>
                     @endif
                 </nav>
             </aside>
@@ -46,7 +46,7 @@
                             @isset($header)
                                 {{ $header }}
                             @else
-                                <h2 class="text-lg font-semibold text-gray-800">Dashboard</h2>
+                                <h2 class="text-lg font-semibold text-gray-800">{{ __('admin.dashboard.title') }}</h2>
                             @endisset
                         </div>
                         <div class="flex items-center gap-4">
@@ -58,7 +58,7 @@
                             <span class="hidden text-sm text-gray-600 sm:inline">{{ auth()->user()->name }}</span>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <button class="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-100">Log out</button>
+                                <button class="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-100">{{ __('admin.actions.logout') }}</button>
                             </form>
                         </div>
                     </div>
