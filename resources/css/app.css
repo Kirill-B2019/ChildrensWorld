@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --brand-primary: #ff6f3c;
+        --brand-primary-dark: #f25b23;
+        --brand-bg: #f9f6f3;
+        --brand-text: #1f2937;
+        --brand-muted: #6b7280;
+        --brand-border: #e5e7eb;
+        --brand-card: #ffffff;
+    }
+
+    body {
+        font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+}
+
+@layer components {
+    .font-display {
+        font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    .section-wrap {
+        @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    .section-title {
+        @apply font-display text-3xl font-bold leading-tight text-brand-text sm:text-4xl;
+    }
+
+    .card {
+        @apply rounded-2xl border border-brand-border bg-brand-card p-6 shadow-sm;
+    }
+}
+
+@layer utilities {
+    .bg-brand-bg { background-color: var(--brand-bg); }
+    .bg-brand-card { background-color: var(--brand-card); }
+    .bg-brand-primary { background-color: var(--brand-primary); }
+    .bg-brand-primary-dark { background-color: var(--brand-primary-dark); }
+    .text-brand-primary { color: var(--brand-primary); }
+    .text-brand-text { color: var(--brand-text); }
+    .text-brand-muted { color: var(--brand-muted); }
+    .border-brand-border { border-color: var(--brand-border); }
+}

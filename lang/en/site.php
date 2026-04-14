@@ -1,0 +1,161 @@
+<?php
+
+return [
+    'meta' => [
+        'default_description' => 'Future for Children is a charity foundation supporting education and social development in Kyrgyzstan.',
+        'home_title' => 'Future for Children Foundation',
+        'home_description' => 'Empower a child through education, healthcare, and community support programs.',
+    ],
+    'nav' => [
+        'about' => 'About',
+        'programs' => 'Programs',
+        'children' => 'Children',
+        'events' => 'Events',
+        'blog' => 'Blog',
+        'reports' => 'Reports',
+        'contact' => 'Contact',
+        'faq' => 'FAQ',
+        'privacy' => 'Privacy Policy',
+        'terms' => 'Terms & Conditions',
+    ],
+    'actions' => [
+        'donate' => 'Sponsor a Child',
+        'view_programs' => 'View All Programs',
+        'back_home' => 'Back to Home',
+    ],
+    'hero' => [
+        'badge' => 'Join the cause',
+        'title' => 'Empower a child\'s future through the gift of education.',
+        'subtitle' => 'Your support keeps children in school, funds teachers, and strengthens local communities across Kyrgyzstan.',
+    ],
+    'mission' => [
+        'title' => 'Our Mission',
+        'text' => 'We build a peaceful and educated future for children by investing in schools, family well-being, and social trust.',
+    ],
+    'stats' => [
+        'years' => 'Years supporting child education',
+        'children' => 'Children enrolled in school',
+        'schools' => 'Partnered with local schools',
+        'regions' => 'Regions with active programs',
+    ],
+    'programs' => [
+        'title' => 'Our Education Programs',
+        'subtitle' => 'Education breaks the cycle of poverty and opens opportunities for every child.',
+        'raised' => 'Raised',
+        'items' => [
+            'kits' => ['title' => 'Educational kits for rural students'],
+            'scholarships' => ['title' => 'Scholarships for girls'],
+            'digital' => ['title' => 'Digital learning access'],
+            'teachers' => ['title' => 'Teacher training support'],
+        ],
+        'list' => [
+            ['title' => 'Education access', 'text' => 'School supplies, scholarship support, and digital classes for underserved regions.'],
+            ['title' => 'Health and well-being', 'text' => 'Preventive care campaigns, child development checks, and family support programs.'],
+            ['title' => 'Community development', 'text' => 'Training for parents, volunteer initiatives, and local partnerships.'],
+            ['title' => 'Youth talent programs', 'text' => 'Creative, sport, and leadership activities to unlock personal potential.'],
+        ],
+    ],
+    'donation_flow' => [
+        'title' => 'How Your Donation Helps',
+        'steps' => [
+            ['title' => 'You donate', 'text' => 'You make a secure online contribution via QR payment.'],
+            ['title' => 'We act', 'text' => 'Funds are directed to approved social programs and projects.'],
+            ['title' => 'Children learn', 'text' => 'Children receive education tools, support, and opportunities.'],
+            ['title' => 'You receive updates', 'text' => 'You can track reports and impact transparently.'],
+        ],
+    ],
+    'about' => [
+        'title' => 'About the Foundation',
+        'text' => 'Future for Children focuses on long-term child development through education, social support, and collaboration with communities.',
+    ],
+    'children' => [
+        'title' => 'Children Stories',
+        'cards' => [
+            ['name' => 'Alina, 10', 'goal' => 'Needs school materials', 'story' => 'Lives in a rural area and attends school daily with support from the program.'],
+            ['name' => 'Daniyar, 12', 'goal' => 'Needs scholarship support', 'story' => 'Dreams of becoming an engineer and improving his community.'],
+            ['name' => 'Maksat, 9', 'goal' => 'Needs digital learning access', 'story' => 'Has strong math skills and needs a stable learning environment.'],
+        ],
+    ],
+    'events' => [
+        'title' => 'Events & Programs',
+        'list' => [
+            ['title' => 'Run for Education', 'date' => '21 Sep 2026 13:00', 'location' => 'Bishkek', 'text' => 'Fundraising marathon for school support.'],
+            ['title' => 'School Donation Drive', 'date' => '25 Sep 2026 15:00', 'location' => 'Osh', 'text' => 'Community campaign for books and supplies.'],
+            ['title' => 'Sponsor Webinar', 'date' => '10 Nov 2026 17:00', 'location' => 'Online', 'text' => 'Donor session on transparent impact reporting.'],
+        ],
+    ],
+    'blog' => [
+        'title' => 'Impact Updates',
+        'posts' => [
+            ['date' => '27 Aug 2026', 'title' => 'How scholarships improve attendance', 'excerpt' => 'A report from partner schools in Kyrgyzstan.'],
+            ['date' => '15 Aug 2026', 'title' => 'Volunteer network grows in regions', 'excerpt' => 'Local communities join social initiatives.'],
+            ['date' => '08 Aug 2026', 'title' => 'Digital classes in remote schools', 'excerpt' => 'New equipment and teacher training rollout.'],
+        ],
+    ],
+    'reports' => [
+        'title' => 'Transparency Reports',
+        'subtitle' => 'Regular publication of program and financial results.',
+        'public' => 'Public report',
+        'items' => [
+            ['title' => 'Annual Financial Report', 'period' => '2025'],
+            ['title' => 'Program Impact Report', 'period' => 'Q1 2026'],
+            ['title' => 'Donation Allocation Report', 'period' => 'Q2 2026'],
+        ],
+    ],
+    'contact' => [
+        'title' => 'Contact',
+        'head_office' => 'Head Office',
+        'address' => 'Bishkek, Kyrgyz Republic',
+        'phone' => '+996 700 123 456',
+        'email' => 'hello@futurechildren.kg',
+        'requisites' => 'Foundation Requisites',
+    ],
+    'donate' => [
+        'title' => 'Donate by QR',
+        'subtitle' => 'Support children in Kyrgyzstan with a secure QR payment.',
+        'amount' => 'Amount',
+        'currency' => 'Currency',
+        'type' => 'Donation type',
+        'one_time' => 'One-time',
+        'monthly' => 'Monthly',
+        'campaign' => 'Campaign',
+        'name' => 'Donor name',
+        'email' => 'Email',
+        'phone' => 'Phone',
+        'pay_qr' => 'Pay via QR',
+        'qr_title' => 'Scan QR to complete payment',
+        'qr_subtitle' => 'Open your banking app, scan the payload, and confirm payment.',
+        'scan_hint' => 'Bank will send payment confirmation via callback/webhook.',
+        'status' => 'Status',
+        'reference' => 'Reference',
+        'simulate_paid' => 'Sandbox: Mark as Paid',
+        'success_title' => 'Thank you for your support!',
+        'success_text' => 'Your donation has been registered successfully. Receipt and updates will follow.',
+    ],
+    'faq' => [
+        'title' => 'Frequently Asked Questions',
+        'items' => [
+            ['q' => 'How do QR donations work?', 'a' => 'After creating a payment intent, you scan QR details in the banking app and confirm payment.'],
+            ['q' => 'Can I track where funds go?', 'a' => 'Yes, we publish regular reports in the Reports section.'],
+            ['q' => 'Can I request a refund?', 'a' => 'Refund policy is described in Terms and Conditions.'],
+        ],
+    ],
+    'privacy' => [
+        'title' => 'Privacy Policy',
+        'p1' => 'We process donor data only for payment processing, communication, and legal reporting.',
+        'p2' => 'Sensitive payment events are logged with access restrictions and audit controls.',
+        'p3' => 'You may request data access, correction, or deletion according to applicable law.',
+    ],
+    'terms' => [
+        'title' => 'Terms & Conditions',
+        'p1' => 'Donations are voluntary and directed to approved social programs of the foundation.',
+        'p2' => 'Payment processing is performed through partner banking channels with QR support.',
+        'p3' => 'Refunds and dispute processing are handled according to foundation policy and applicable law.',
+    ],
+    'footer' => [
+        'title' => 'Future for Children',
+        'subtitle' => 'Education for every child.',
+        'company' => 'Company',
+        'resources' => 'Resources',
+    ],
+];
