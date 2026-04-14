@@ -15,22 +15,59 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
+        <div class="min-h-screen bg-gray-100 lg:flex">
+            <aside class="w-full border-b border-gray-200 bg-white lg:min-h-screen lg:w-72 lg:border-b-0 lg:border-r">
+                <div class="px-6 py-5">
+                    <a href="{{ route('dashboard') }}" class="text-lg font-bold text-indigo-700">
+                        {{ config('app.name', 'Laravel') }} CMS
+                    </a>
+                </div>
 
-            <!-- Page Heading -->
-            @isset($header)
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
+                <nav class="space-y-1 px-3 pb-5">
+                    <a href="{{ route('dashboard') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('dashboard') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Dashboard</a>
+                    <a href="{{ route('profile.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('profile.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Profile</a>
+
+                    @if (auth()->user()?->email === config('cms.admin_email', 'test@test.com'))
+                        <div class="mt-4 px-3 text-xs font-semibold uppercase tracking-wide text-gray-500">CMS</div>
+                        <a href="{{ route('admin.content.pages.index') }}" class="mt-1 block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.pages.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Pages</a>
+                        <a href="{{ route('admin.content.posts.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.posts.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Blog</a>
+                        <a href="{{ route('admin.content.events.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.events.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Events</a>
+                        <a href="{{ route('admin.content.reports.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.reports.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Reports</a>
+                        <a href="{{ route('admin.content.donations.index') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.donations.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Donations</a>
+                        <a href="{{ route('admin.content.settings.edit') }}" class="block rounded-md px-3 py-2 text-sm font-medium {{ request()->routeIs('admin.content.settings.*') ? 'bg-indigo-600 text-white' : 'text-gray-700 hover:bg-gray-100' }}">Settings</a>
+                    @endif
+                </nav>
+            </aside>
+
+            <div class="min-w-0 flex-1">
+                <header class="border-b bg-white shadow-sm">
+                    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+                        <div>
+                            @isset($header)
+                                {{ $header }}
+                            @else
+                                <h2 class="text-lg font-semibold text-gray-800">Dashboard</h2>
+                            @endisset
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center overflow-hidden rounded-md border border-gray-300">
+                                @foreach (['en' => 'EN', 'ru' => 'RU', 'kg' => 'KG'] as $lang => $label)
+                                    <a href="{{ route('dashboard.locale', ['locale' => $lang]) }}" class="px-2 py-1 text-xs font-semibold {{ app()->getLocale() === $lang ? 'bg-indigo-600 text-white' : 'bg-white text-gray-700' }}">{{ $label }}</a>
+                                @endforeach
+                            </div>
+                            <span class="hidden text-sm text-gray-600 sm:inline">{{ auth()->user()->name }}</span>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button class="rounded-md border border-gray-300 px-3 py-1.5 text-sm text-gray-700 hover:bg-gray-100">Log out</button>
+                            </form>
+                        </div>
                     </div>
                 </header>
-            @endisset
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+                <main>
+                    {{ $slot }}
+                </main>
+            </div>
         </div>
     </body>
 </html>

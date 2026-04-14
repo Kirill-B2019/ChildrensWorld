@@ -6,21 +6,17 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class EnsureAdmin
+class SetDashboardLocale
 {
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->user();
+        $locale = $request->session()->get('dashboard_locale', app()->getLocale());
 
-        if (! $user) {
-            abort(403);
+        if (! in_array($locale, ['en', 'ru', 'kg'], true)) {
+            $locale = 'en';
         }
 
-        $allowedEmail = (string) config('cms.admin_email', 'test@test.com');
-
-        if ($user->email !== $allowedEmail) {
-            abort(403);
-        }
+        app()->setLocale($locale);
 
         return $next($request);
     }

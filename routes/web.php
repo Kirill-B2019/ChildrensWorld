@@ -47,6 +47,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard/locale/{locale}', function (string $locale) {
+        abort_unless(in_array($locale, ['en', 'ru', 'kg'], true), 404);
+        session(['dashboard_locale' => $locale]);
+
+        return back();
+    })->name('dashboard.locale');
+});
+
+Route::middleware('auth')->middleware('dashboardLocale')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
