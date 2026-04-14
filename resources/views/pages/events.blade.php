@@ -3,20 +3,23 @@
 @section('title', __('site.nav.events'))
 
 @section('content')
-    <section class="section-wrap py-16">
+    <section class="section-wrap section-block">
         <h1 class="section-title">{{ __('site.events.title') }}</h1>
-        <div class="mt-8 grid gap-5 md:grid-cols-2">
+        <div class="mt-8 grid gap-6 md:grid-cols-2">
             @foreach (__('site.events.list') as $event)
-                <article class="card">
+                <a href="#" class="card-media group focus-ring">
                     <img
                         src="{{ asset($loop->iteration % 2 === 0 ? 'img/event-3.webp' : 'img/event-2.webp') }}"
                         alt="{{ $event['title'] }}"
-                        class="mb-4 h-52 w-full rounded-2xl object-cover"
+                        class="card-media-image"
                     >
-                    <h2 class="font-display text-xl font-semibold">{{ $event['title'] }}</h2>
-                    <p class="mt-2 text-sm text-brand-primary">{{ $event['date'] }} — {{ $event['location'] }}</p>
-                    <p class="mt-3 text-brand-muted">{{ $event['text'] }}</p>
-                </article>
+                    <div class="card-media-body">
+                        <h2 class="font-display text-xl font-semibold">{{ $event['title'] }}</h2>
+                        <p class="mt-2 text-sm text-brand-primary">{{ $event['date'] }} — {{ $event['location'] }}</p>
+                        <p class="mt-3 text-brand-muted">{{ $event['text'] }}</p>
+                        <p class="mt-4 text-sm font-semibold text-brand-primary">View details</p>
+                    </div>
+                </a>
             @endforeach
         </div>
     </section>

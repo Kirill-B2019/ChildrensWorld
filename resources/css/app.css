@@ -11,10 +11,26 @@
         --brand-muted: #6b7280;
         --brand-border: #e5e7eb;
         --brand-card: #ffffff;
+        --brand-heading-xxl: clamp(2rem, 5vw, 3.75rem);
+        --brand-heading-xl: clamp(1.75rem, 3vw, 3rem);
+        --brand-heading-lg: clamp(1.375rem, 2.2vw, 2rem);
+        --brand-section-space: clamp(3.25rem, 6vw, 6rem);
     }
 
     body {
         font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+    }
+
+    a,
+    button,
+    input,
+    select,
+    textarea {
+        @apply transition duration-200 ease-out;
+    }
+
+    [x-cloak] {
+        display: none !important;
     }
 }
 
@@ -27,12 +43,54 @@
         @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
     }
 
+    .section-block {
+        padding-top: var(--brand-section-space);
+        padding-bottom: var(--brand-section-space);
+    }
+
+    .heading-hero {
+        font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+        font-size: var(--brand-heading-xxl);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+    }
+
     .section-title {
-        @apply font-display text-3xl font-bold leading-tight text-brand-text sm:text-4xl;
+        font-family: "Outfit", ui-sans-serif, system-ui, sans-serif;
+        font-size: var(--brand-heading-xl);
+        line-height: 1.1;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        color: var(--brand-text);
     }
 
     .card {
         @apply rounded-2xl border border-brand-border bg-brand-card p-6 shadow-sm;
+    }
+
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white hover:bg-brand-primary-dark;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-full border border-brand-border bg-white px-6 py-3 text-sm font-semibold text-brand-text hover:border-brand-primary hover:text-brand-primary;
+    }
+
+    .card-media {
+        @apply card overflow-hidden p-0;
+    }
+
+    .card-media-image {
+        @apply h-52 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03];
+    }
+
+    .card-media-body {
+        @apply p-6;
+    }
+
+    .focus-ring {
+        @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
     }
 }
 
@@ -45,4 +103,5 @@
     .text-brand-text { color: var(--brand-text); }
     .text-brand-muted { color: var(--brand-muted); }
     .border-brand-border { border-color: var(--brand-border); }
+    .border-brand-primary { border-color: var(--brand-primary); }
 }
