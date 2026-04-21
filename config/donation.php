@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'merchant_name' => env('DONATION_MERCHANT_NAME', 'OF "Future for Children KG"'),
+    'merchant_name' => env('DONATION_MERCHANT_NAME', 'OF "Eurasian Public Foundation INDUSTRY OF SOCIAL DEVELOPMENT"'),
     'merchant_inn' => env('DONATION_MERCHANT_INN', '12345678901234'),
     'bank_name' => env('DONATION_BANK_NAME', 'OJSC Demo Bank Kyrgyzstan'),
     'bank_bic' => env('DONATION_BANK_BIC', 'DEMOKG22'),

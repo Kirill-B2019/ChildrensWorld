@@ -7,6 +7,7 @@
     <section class="section-wrap section-block pb-10">
         <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
+                <h3 class="mb-6 max-w-xl text-lg uppercase">{{ $homeTranslation?->title ?: __('site.hero.title_up') }}</h3>
                 <p class="font-display text-sm font-semibold uppercase tracking-[0.2em] text-brand-primary">{{ __('site.hero.badge') }}</p>
                 <h1 class="heading-hero mt-5">{{ $homeTranslation?->title ?: __('site.hero.title') }}</h1>
                 <p class="mt-6 max-w-xl text-lg text-brand-muted">{{ $homeTranslation?->body ?: __('site.hero.subtitle') }}</p>

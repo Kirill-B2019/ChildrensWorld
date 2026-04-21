@@ -2,8 +2,8 @@
 
 return [
     'meta' => [
-        'default_description' => 'Future for Children is a charity foundation supporting education and social development in Kyrgyzstan.',
-        'home_title' => 'Future for Children Foundation',
+        'default_description' => 'Eurasian Public Foundation INDUSTRY OF SOCIAL DEVELOPMENT is a charity foundation supporting education and social development in Kyrgyzstan.',
+        'home_title' => 'Eurasian Public Foundation INDUSTRY OF SOCIAL DEVELOPMENT',
         'home_description' => 'Empower a child through education, healthcare, and community support programs.',
     ],
     'nav' => [
@@ -24,6 +24,7 @@ return [
         'back_home' => 'Back to Home',
     ],
     'hero' => [
+        'title_up' => 'Kyrgyzstan is a country with a socially oriented digital economy.',
         'badge' => 'Join the cause',
         'title' => 'Empower a child\'s future through the gift of education.',
         'subtitle' => 'Your support keeps children in school, funds teachers, and strengthens local communities across Kyrgyzstan.',
@@ -75,7 +76,7 @@ return [
     ],
     'about' => [
         'title' => 'About the Foundation',
-        'text' => 'Future for Children focuses on long-term child development through education, social support, and collaboration with communities.',
+        'text' => 'Eurasian Public Foundation INDUSTRY OF SOCIAL DEVELOPMENT focuses on long-term child development through education, social support, and collaboration with communities.',
         'paragraphs' => [
             'The "Our Mission - Future for Children" framework treats children as the main intellectual and spiritual resource of tomorrow, with education and upbringing as the core of sustainable development.',
             'We promote intercultural and interethnic dialogue, respect for language and traditions, and practical cooperation focused on children\'s future.',
@@ -174,7 +175,7 @@ return [
         'p3' => 'Refunds and dispute processing are handled according to foundation policy and applicable law.',
     ],
     'footer' => [
-        'title' => 'Future for Children',
+        'title' => 'Eurasian Public Foundation INDUSTRY OF SOCIAL DEVELOPMENT',
         'subtitle' => 'Education for every child.',
         'company' => 'Company',
         'resources' => 'Resources',
