@@ -61,7 +61,7 @@
     <header class="sticky top-0 z-40 border-b border-brand-border/50 bg-white/90 backdrop-blur">
         <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
             <a href="{{ $locale === 'en' ? route('home') : route('home.localized', ['locale' => $locale]) }}" class="focus-ring font-display text-xl font-bold text-brand-primary">
-                INDUSTRY OF SOCIAL DEVELOPMENT
+                EPF-SDI
             </a>
             @php
                 $navItems = [
