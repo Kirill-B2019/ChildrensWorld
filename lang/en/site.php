@@ -42,7 +42,7 @@ return [
     'programs' => [
         'title' => 'Our Education Programs',
         'subtitle' => 'Education breaks the cycle of poverty and opens opportunities for every child.',
-        'strategy_title' => 'Aligned with the Kyrgyzstan Program',
+        'strategy_title' => 'Aligned with Kyrgyzstan is a country with a socially oriented digital economy Program',
         'strategy_text' => 'Our social initiatives are aligned with the vision of socially oriented development in Kyrgyzstan: extra-budgetary funding mechanisms, transparent allocation, and phased implementation of regional projects.',
         'priorities_title' => 'Program Priorities',
         'priorities' => [
